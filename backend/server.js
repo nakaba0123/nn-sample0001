@@ -1,11 +1,10 @@
-{
-  "name": "my-backend-api",
-  "version": "1.0.0",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.18.2"
-  }
-}
+const express = require("express");
+const app = express();
+
+// public フォルダを静的ファイルとして使う
+app.use(express.static("public"));
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
